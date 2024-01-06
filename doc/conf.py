@@ -18,7 +18,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "_ext"))
 def generate_doxygen_xml(app):
     from subprocess import call
     doxdir = os.path.abspath(os.path.dirname(__file__))
-    call('cd %s; doxygen' % doxdir, shell=True)
+    call(f'cd {doxdir}; doxygen', shell=True)
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom

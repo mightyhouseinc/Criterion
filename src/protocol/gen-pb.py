@@ -15,10 +15,13 @@ source_dir = dirname(proto_file)
 
 makedirs(build_dir, exist_ok=True)
 
-cmdline = [protoc_path, '--plugin=protoc-gen-nanopb=' + gen_path,
-      '-I' + source_dir,
-      '--nanopb_out=' + '-f' + options_file + ':' + build_dir,
-      proto_file]
+cmdline = [
+    protoc_path,
+    f'--plugin=protoc-gen-nanopb={gen_path}',
+    f'-I{source_dir}',
+    '--nanopb_out=' + '-f' + options_file + ':' + build_dir,
+    proto_file,
+]
 
 sys.stderr.write(" ".join(cmdline) + "\n")
 exit(call(cmdline))
